@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/finches-index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>bird list</h1>
+  <img src="{% static 'images/download-4.jpg' %}" alt="bird" />
+ 
+<section class="card-container">
+  {% for finch in finches %}
+    <div class="card">
+      <div class="card-content">
+      <a href="/finches/{{finch.id}}"
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/download-4.jpg' %}" 
+            alt="bird"
+          >
+        </div>
+        <h2 class="card-title">{{ finches.name }}</h2>
+        {% if finches.color > 0 %}
+          <p>A {{ finches.color }} </p>
+        {% else %}
+          <p>A {{ finches.avis }} likes.</p>
+      </div>
+      </a>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
